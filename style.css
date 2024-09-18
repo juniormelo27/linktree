@@ -27,6 +27,7 @@
 body {
     background: var(--bg-url) no-repeat top center/cover;
     /* background-size: cover para preencher a tela toda no mobile */
+    height: 100vh;
 }
 
 body * {
@@ -35,7 +36,8 @@ body * {
 }
 
 #container {
-    width: 360px;
+    width: 100%;
+    max-width: 588px;
     margin: 56px auto 0;
     padding: 0 24px;
 }
@@ -75,11 +77,13 @@ body * {
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+    animation: slide-back 0.2s;
 }
 .light #switch button {
-    right: 0;
-    left: initial;
-
+   animation: slide-in 0.4s forwards;
+}
+#switch button:hover {
+    outline: 8px solid var(--surface-color);
 }
 
 #switch span {
@@ -88,7 +92,7 @@ body * {
     height: 24px;
     background: var(--surface-color);
     border: 1px solid var(--stroke-color);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     border-radius: 9999px;
 }
 
@@ -138,11 +142,39 @@ ul li a:hover {
 }
 
 #social-link a:hover {
-    background-color: var(--highlight-color);
+    background-color: var(--surface-color);
 }
 
 footer {
     padding: 24px 0;
     text-align: center;
     font-size: 14px;
+}
+    /* media queries*/
+@media (min-width: 700px) {
+    :root {
+        --bg-url: url(./assents/bg-desktop.jpg);
+    }
+    .light {
+        --bg-url: url(./assents/bg-desktop-light.jpg);
+    }
+}
+
+@keyframes slide-in {
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+
 }
