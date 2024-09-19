@@ -158,6 +158,7 @@ footer {
     .light {
         --bg-url: url(./assents/bg-desktop-light.jpg);
     }
+<<<<<<< HEAD
 }
 
 @keyframes slide-in {
@@ -177,4 +178,6 @@ footer {
         left: 0;
     }
 
+=======
+>>>>>>> ec80da5250bc28d0256377f2f98e60459f810116
 }
